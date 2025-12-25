@@ -3,7 +3,7 @@
 Website company profile untuk **Sprei Hotel Syakila Group**, produsen sprei hotel berkualitas sejak 2014.
 
 ## 🌐 Live Preview
-[https://username.github.io/syakila-group-website](https://username.github.io/syakila-group-website)
+https://jpxproject.github.io/syakila-group-website/
 
 ## 📋 Fitur
 - Responsive design (mobile & desktop)
