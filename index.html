@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sprei Hotel Syakila Group - Produsen sprei hotel berkualitas tinggi sejak 2014. Melayani industri hospitality dengan standar premium di Sukabumi, Jawa Barat.">
+    <meta name="keywords" content="sprei hotel, bed sheet hotel, linen hotel, produsen sprei hotel, sprei hotel berkualitas, textile hospitality, Sukabumi">
+    <meta name="author" content="Sprei Hotel Syakila Group">
+    <title>Sprei Hotel Syakila Group | Produsen Linen Hotel Berkualitas Sejak 2014</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C9A961;
+            --dark-gold: #B39447;
+            --navy: #1a2332;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #2c3e50;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px var(--shadow);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            height: 60px;
+        }
+
+        .logo-img {
+            height: 100%;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--gold);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: 
+                linear-gradient(rgba(26, 35, 50, 0.7), rgba(26, 35, 50, 0.9)),
+                url('https://i.ibb.co.com/0yfGsWJ6/header-syakila-group.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            margin-top: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(201, 169, 97, 0.1) 0%, rgba(26, 35, 50, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            letter-spacing: 1.5px;
+            line-height: 1.2;
+        }
+
+        .hero .tagline {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--dark-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(201, 169, 97, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        /* Vision Mission */
+        .vision-mission {
+            background: linear-gradient(135deg, var(--navy) 0%, #2c3e50 100%);
+            padding: 6rem 5%;
+            color: var(--white);
+        }
+
+        .vm-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .vm-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .vm-card h3 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .vm-card ul {
+            list-style: none;
+        }
+
+        .vm-card li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .vm-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--light-gray);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s;
+            border-top: 4px solid var(--gold);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(201, 169, 97, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Products */
+        .products {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, var(--navy) 0%, #2c3e50 100%);
+            padding: 6rem 5%;
+            color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        .contact-item h4 {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 5%;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                right: -100%;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 5px 20px var(--shadow);
+                transition: right 0.3s;
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 0;
+                background-attachment: scroll;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .logo {
+                height: 50px;
+            }
+            
+            .logo-img {
+                max-width: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .features, .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .vm-container, .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo-img {
+                max-width: 150px;
+            }
+        }
+
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            background: var(--dark-gold);
+        }
+
+        /* Company tagline in header */
+        .company-tagline {
+            display: none;
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 500;
+        }
+
+        @media (min-width: 1024px) {
+            .company-tagline {
+                display: block;
+                margin-left: 1rem;
+                border-left: 2px solid var(--gold);
+                padding-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://i.ibb.co.com/j9wwnvr6/logosyakilagroup.png" class="logo-img" alt="Sprei Hotel Syakila Group Logo">
+                <div class="company-tagline">Produsen Linen Hotel Berkualitas Sejak 2014</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#why-us">Keunggulan</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>SPREI HOTEL SYAKILA GROUP</h1>
+            <p class="tagline">Merajut Kenyamanan, Mengukuhkan Kualitas Sejak 2014</p>
+            <p>Produsen utama bed sheet, sprei, dan linen hotel berkualitas tinggi dengan standar hospitality. Didukung oleh pengalaman 10 tahun melayani industri akomodasi di Indonesia.</p>
+            <div class="cta-buttons">
+                <a href="#products" class="btn btn-primary">Lihat Katalog Produk</a>
+                <a href="#contact" class="btn btn-secondary">Konsultasi Kebutuhan Hotel</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">10 Tahun Menjadi Bagian dari Kisah Sukses Hospitality Indonesia</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Di awal tahun 2014, Sprei Hotel Syakila Group didirikan dengan satu visi sederhana: menyediakan produk linen tempat tidur yang tidak hanya nyaman, tetapi juga tahan lama dan elegan untuk mendukung pengalaman menginap tamu yang terbaik.</p>
+                <p>Sepanjang satu dekade perjalanan kami, kami telah berkembang dari produsen lokal menjadi mitra tepercaya bagi berbagai pengusaha hotel, villa, guest house, dan rumah sakit. Setiap helai kain yang kami produksi bercerita tentang dedikasi terhadap kualitas bahan, ketelitian jahitan, dan pemahaman mendalam akan kebutuhan industri hospitality.</p>
+                <p>Komitmen kami adalah menjadi ekstensi dari tim housekeeping Anda, menyediakan sprei yang selalu prima, mudah perawatan, dan meningkatkan estetika kamar tidur.</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">Tahun Pengalaman</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Kualitas Terjamin</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">∞</div>
+                <div class="stat-label">Kepuasan Pelanggan</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Mission -->
+    <section class="vision-mission">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2 class="section-title" style="color: white;">Visi & Misi Kami</h2>
+            <div class="vm-container">
+                <div class="vm-card">
+                    <h3>Visi</h3>
+                    <p>Menjadi produsen dan mitra penyedia linen hotel pilihan utama di Indonesia, yang dikenal karena keandalan, kualitas konsisten, dan pelayanan berbasis kemitraan jangka panjang.</p>
+                </div>
+                <div class="vm-card">
+                    <h3>Misi</h3>
+                    <ul>
+                        <li><strong>Kualitas Tanpa Kompromi:</strong> Menggunakan bahan pilihan dengan jahitan presisi dan finishing terbaik.</li>
+                        <li><strong>Solusi Hospitality:</strong> Memahami dinamika operasional hotel dan menyediakan produk tahan pencucian intensif.</li>
+                        <li><strong>Kemitraan Berpengalaman:</strong> Menawarkan konsultasi, fleksibilitas order, dan dukungan purna jual.</li>
+                        <li><strong>Inovasi Berkelanjutan:</strong> Terus mengembangkan variasi produk sesuai tren dan kebutuhan pasar.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="why-us">
+        <h2 class="section-title">Mengapa Memilih Kami?</h2>
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🏆</div>
+                <h3>10 Tahun Bukti Kualitas</h3>
+                <p>Pengalaman panjang memahami kebutuhan riil dunia hospitality dengan track record yang terbukti.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Bahan Pilihan Premium</h3>
+                <p>Material katun dan TC berkualitas dengan serat kuat, breathable, dan nyaman untuk kenyamanan maksimal.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧵</div>
+                <h3>Jahitan Kokoh & Rapih</h3>
+                <p>Standard jahitan hotel dengan ketahanan tinggi terhadap pencucian berulang dan penggunaan intensif.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Custom Sesuai Kebutuhan</h3>
+                <p>Menyesuaikan ukuran, warna, dan label khusus untuk brand hotel Anda dengan fleksibilitas tinggi.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Harga Kompetitif Produsen</h3>
+                <p>Harga langsung dari pabrik tanpa perantara, memberikan nilai terbaik untuk investasi Anda.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Konsistensi & Ketepatan Waktu</h3>
+                <p>Pasokan terjaga, pengiriman sesuai janji untuk mendukung operasional hotel Anda tanpa gangguan.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="products">
+        <h2 class="section-title">Lini Produk Unggulan</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">🛏️</div>
+                <div class="product-info">
+                    <h3>Sprei Katun Combed Hotel</h3>
+                    <p>Sprei berkualitas premium dengan bahan katun combed yang lembut, breathable, dan tahan lama untuk kenyamanan optimal.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">📋</div>
+                <div class="product-info">
+                    <h3>Bed Sheet TC (Tetoron Cotton)</h3>
+                    <p>Kombinasi sempurna antara kekuatan tetoron dan kelembutan cotton untuk daya tahan maksimal.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🛌</div>
+                <div class="product-info">
+                    <h3>Bed Cover / Penutup Bed</h3>
+                    <p>Bed cover elegan dengan berbagai pilihan warna dan motif untuk melengkapi estetika kamar hotel.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🧺</div>
+                <div class="product-info">
+                    <h3>Pillow Case</h3>
+                    <p>Sarung bantal berkualitas tinggi dengan jahitan presisi dan bahan yang nyaman di kulit.</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">✨</div>
+                <div class="product-info">
+                    <h3>Linen Lainnya</h3>
+                    <p>Berbagai produk linen hotel lainnya sesuai permintaan dan kebutuhan khusus properti Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <h2 class="section-title" style="color: white;">Hubungi & Kunjungi Kami</h2>
+            <p style="text-align: center; margin-bottom: 3rem; font-size: 1.1rem;">
+                Kami siap mendukung kebutuhan linen hospitality Anda. Untuk katalog, sampel bahan, penawaran harga, dan konsultasi, silakan hubungi:
+            </p>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Telepon</h4>
+                            <a href="tel:085694375502">0856 9437 5502</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Alamat Workshop</h4>
+                            <p>Jl. Cinagrog, RT 007/RW 002<br>
+                            Kampung Cijati, Desa Sukamaju<br>
+                            Kec. Cimanggu, Kab. Sukabumi<br>
+                            Jawa Barat 43178</p>
+                            <p style="margin-top: 0.5rem; font-style: italic; color: var(--gold);">
+                                Patokan: Rumah warna putih dua lantai dengan banyak pohon bonsai di halaman depan
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h3 style="color: var(--gold); margin-bottom: 1.5rem;">Jam Operasional</h3>
+                    <p style="margin-bottom: 1rem;">📅 Senin - Sabtu: 08.00 - 17.00 WIB</p>
+                    <p style="margin-bottom: 2rem;">📅 Minggu: Libur</p>
+                    <h3 style="color: var(--gold); margin-bottom: 1rem;">Layanan Kami</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 0.5rem;">✓ Konsultasi Gratis</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Sampel Bahan</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Custom Order</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Pengiriman Seluruh Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p style="font-size: 1.2rem; color: var(--gold); margin-bottom: 1rem;">
+            "Dari Sukabumi untuk Hospitality Indonesia"
+        </p>
+        <p style="font-weight: 600;">Sprei Hotel Syakila Group</p>
+        <p>Mitra Terpercaya untuk Sprei & Linen Hotel Berkualitas</p>
+        <p style="margin-top: 1rem; opacity: 0.8;">
+            © 2025 Sprei Hotel Syakila Group. All Rights Reserved.
+        </p>
+    </footer>
+
+    <!-- Scroll to top -->
+    <div class="scroll-top" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelector('.nav-links').classList.remove('active');
+                }
+            });
+        });
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+            
+            // Header background on scroll
+            const header = document.querySelector('header');
+            if (window.pageYOffset > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Check if images load successfully
+        document.addEventListener('DOMContentLoaded', function() {
+            const hero = document.querySelector('.hero');
+            const logo = document.querySelector('.logo-img');
+            
+            // Test hero image
+            const heroImage = new Image();
+            heroImage.src = 'https://i.ibb.co.com/0yfGsWJ6/header-syakila-group.png';
+            
+            heroImage.onload = function() {
+                console.log('✅ Hero image loaded successfully');
+            };
+            
+            heroImage.onerror = function() {
+                console.log('❌ Hero image failed to load');
+                // Fallback to gradient
+                hero.style.background = 'linear-gradient(135deg, var(--navy) 0%, var(--text-dark) 100%)';
+            };
+            
+            // Test logo image
+            const logoImage = new Image();
+            logoImage.src = 'https://i.ibb.co.com/j9wwnvr6/logosyakilagroup.png';
+            
+            logoImage.onload = function() {
+                console.log('✅ Logo image loaded successfully');
+            };
+            
+            logoImage.onerror = function() {
+                console.log('❌ Logo image failed to load');
+                // Create text fallback
+                logo.style.display = 'none';
+                const textFallback = document.createElement('div');
+                textFallback.style.cssText = 'background: linear-gradient(135deg, var(--navy) 0%, var(--text-dark) 100%); color: white; padding: 0.5rem 1rem; border-radius: 5px; font-weight: bold; font-size: 1.2rem;';
+                textFallback.textContent = 'SYAKILA GROUP';
+                logo.parentNode.insertBefore(textFallback, logo.nextSibling);
+            };
+            
+            // Load stats with animation
+            const stats = document.querySelectorAll('.stat-card');
+            stats.forEach((stat, index) => {
+                setTimeout(() => {
+                    stat.style.opacity = '1';
+                    stat.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        // Close menu when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            const navLinks = document.querySelector('.nav-links');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (navLinks.classList.contains('active') && 
+                !navLinks.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
